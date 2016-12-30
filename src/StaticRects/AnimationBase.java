@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JApplet;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -16,7 +16,7 @@ import javax.swing.Timer;
  *
  * @author Keith
  */
-public class AnimationBase implements ActionListener {
+public class AnimationBase extends JFrame implements ActionListener {
     
     public void drawFrame(Graphics g) {
         
