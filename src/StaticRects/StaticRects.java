@@ -32,12 +32,14 @@ public class StaticRects extends AnimationBase {
         System.out.println("From drawFrame()");
         
         AnimationBase frame = new AnimationBase();
+        
+        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.add(new StaticRectPanel());
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.setVisible(true);  
         
         System.out.println("Frame size = " + frame.getSize());
         

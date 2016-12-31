@@ -26,7 +26,7 @@ public class StaticRectPanel extends JPanel {
    public StaticRectPanel() {
       
 
-      setBackground( new Color(0, 130, 0) );
+      setBackground( new Color(0, 0, 130) );
       
       
  //     setLayout( new BorderLayout(3,3) );

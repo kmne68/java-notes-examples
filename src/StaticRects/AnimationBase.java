@@ -6,9 +6,12 @@ package StaticRects;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -18,10 +21,40 @@ import javax.swing.Timer;
  */
 public class AnimationBase extends JFrame implements ActionListener {
     
+    private JLabel labelUsername = new JLabel("Enter username: ");
+    
+    public AnimationBase()
+    {
+        System.out.println("From AnimationBase.");
+        
+        StaticRectPanel srp = new StaticRectPanel();
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.anchor = GridBagConstraints.WEST;
+        constraints.insets = new Insets(10, 10, 10, 10);
+        srp.add(labelUsername, constraints);
+    }
     public void drawFrame(Graphics g) {
         
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, getWidth(), getHeight());
+        
+
+        
+        
+   //      AnimationBase frame = new AnimationBase();
+        
+  //      JFrame frame = new JFrame("Static Rectangles");
+        
+  /*      
+        frame.getPreferredSize();
+        frame.setContentPane(content);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocation(100, 75);
+        frame.setSize(300, 240);
+        frame.setBackground(Color.yellow);
+        frame.setVisible(true);  
+        */
+        g.setColor(Color.BLUE);
+    //    g.fillRect(0, 0, getWidth(), getHeight());
         g.setColor(Color.yellow);
         g.drawString("Frame Number " + getFrameNumber(), 10, 15);
         g.drawString("Elapsed Time " + getElapsedTime()/1000 + " seconds", 10, 30);
@@ -41,11 +74,11 @@ public class AnimationBase extends JFrame implements ActionListener {
     
     public int getWidth() {
         
-        return display.getSize().width;
+        return this.getSize().width;
     }
     
     public int getHeight() {
-        return display.getSize().height;
+        return this.getSize().height;
     }
     
     public long getElapsedTime() {
@@ -79,15 +112,22 @@ public class AnimationBase extends JFrame implements ActionListener {
     
     private JPanel display;
     
-    public AnimationBase() {
+    private StaticRectPanel content;
+    
+  /*  public AnimationBase() {
         
-        display = new JPanel() {
+        content = new StaticRectPanel() {
+            public void paintComponenet(Graphics g) {
+                drawFrame(g);
+            } */
+  //      }; 
+  /*      display = new JPanel() {
             public void paintComponent(Graphics g) {
                 drawFrame(g);
             }
-        };
+        };*/
     //    getContentPane().add(display);
-    }
+  //  }
     
 
     @Override
