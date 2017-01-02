@@ -25,20 +25,48 @@ public class AnimationBase extends JFrame implements ActionListener {
     
     public AnimationBase()
     {
+        
         System.out.println("From AnimationBase.");
         
-        StaticRectPanel srp = new StaticRectPanel();
+        StaticRectPanel outerPanel = new StaticRectPanel();
+        JPanel innerPanelLeft = new JPanel();
+        JPanel innerPanelRight = new JPanel();
+        JPanel innerInnerPanel = new JPanel();
         
-        GridBagConstraints constraints = new GridBagConstraints();
+        
+        setContentPane(outerPanel);
+        setLocation(100, 75);
+        setSize(300, 240);
+        
+    //    setContentPane(innerPanelLeft);
+        add(innerPanelLeft);
+        add(innerPanelRight);
+        innerInnerPanel.setBackground(Color.RED);
+        innerPanelLeft.add(innerInnerPanel);
+        
+        innerPanelLeft.setBackground(Color.yellow);
+        
+   /*     GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10, 10, 10, 10);
-        srp.add(labelUsername, constraints);
-    }
-    public void drawFrame(Graphics g) {
+        constraints.insets = new Insets(10, 10, 10, 10); 
+        outerPanel.add(labelUsername, constraints); */
         
         
+        /**
+         JPanel container = new JPanel();
+            container.setLayout(new BoxLayout(container, BoxLayout.X_AXIS));
 
+            JPanel panel1 = new JPanel();
+            JPanel panel2 = new JPanel();
+
+            //panel1.set[Preferred/Maximum/Minimum]Size()
+
+            container.add(panel1);
+            container.add(panel2);
+         **/
         
+    }
+    public void drawFrame(Graphics g) {        
         
    //      AnimationBase frame = new AnimationBase();
         
@@ -46,7 +74,7 @@ public class AnimationBase extends JFrame implements ActionListener {
         
   /*      
         frame.getPreferredSize();
-        frame.setContentPane(content);
+        frame.setContentPane(outerPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocation(100, 75);
         frame.setSize(300, 240);
@@ -116,7 +144,7 @@ public class AnimationBase extends JFrame implements ActionListener {
     
   /*  public AnimationBase() {
         
-        content = new StaticRectPanel() {
+        outerPanel = new StaticRectPanel() {
             public void paintComponenet(Graphics g) {
                 drawFrame(g);
             } */

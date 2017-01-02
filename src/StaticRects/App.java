@@ -37,6 +37,7 @@ public class App {
     
   /*  public static void main(String[] args) {
         
+        * 
         System.out.println("From App.main");
 
         AnimationBase frame = new AnimationBase();
