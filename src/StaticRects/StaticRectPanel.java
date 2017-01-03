@@ -26,8 +26,28 @@ public class StaticRectPanel extends JPanel {
    public StaticRectPanel() {
       
 
-      setBackground( new Color(130, 0, 130) );
+        setBackground( new Color(130, 0, 130) );
+        setLayout( new BorderLayout(3,3) );  // BorderLayout with 3-pixel gaps.
 
+        JPanel innerPanelLeft = new JPanel();
+        innerPanelLeft.setBackground(Color.yellow);
+        add(innerPanelLeft, BorderLayout.NORTH);
+        
+        JPanel innerPanelRight = new JPanel();
+        
+        JPanel innerInnerPanel = new JPanel();
+        
+        
+        setLocation(100, 75);
+        setSize(900, 600);
+        
+    //    setContentPane(innerPanelLeft);
+   //     add(innerPanelLeft);
+   //     add(innerPanelRight);
+    //    innerInnerPanel.setBackground(Color.RED);
+    //    innerPanelLeft.add(innerInnerPanel);
+        
+   //     innerPanelLeft.setBackground(Color.yellow);
       
       
  //     setLayout( new BorderLayout(3,3) );

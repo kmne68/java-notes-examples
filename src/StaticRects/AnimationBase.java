@@ -29,14 +29,21 @@ public class AnimationBase extends JFrame implements ActionListener {
         System.out.println("From AnimationBase.");
         
         StaticRectPanel outerPanel = new StaticRectPanel();
-        JPanel innerPanelLeft = new JPanel();
+        
+        setContentPane(outerPanel);   
+        
+        setLocation(100, 75);
+        setSize(900, 600);
+        
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+/*        JPanel innerPanelLeft = new JPanel();
         JPanel innerPanelRight = new JPanel();
         JPanel innerInnerPanel = new JPanel();
         
         
-        setContentPane(outerPanel);
+
         setLocation(100, 75);
-        setSize(300, 240);
+        setSize(900, 600);
         
     //    setContentPane(innerPanelLeft);
         add(innerPanelLeft);
@@ -44,7 +51,7 @@ public class AnimationBase extends JFrame implements ActionListener {
         innerInnerPanel.setBackground(Color.RED);
         innerPanelLeft.add(innerInnerPanel);
         
-        innerPanelLeft.setBackground(Color.yellow);
+        innerPanelLeft.setBackground(Color.yellow); */
         
    /*     GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
