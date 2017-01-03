@@ -6,6 +6,8 @@ package StaticRects;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
@@ -17,37 +19,44 @@ public class StaticRectPanel extends JPanel {
    
    
    /**
-    * The constructor lays out the panel.  A CardPanel occupies the CENTER 
-    * position of the panel (where CardPanel is a subclass of JPanel that is 
-    * defined below).  On the bottom is a panel that holds three buttons.  
-    * The CardPanel listens for ActionEvents from the buttons and does all 
-    * the real work of the program.
+    * The constructor lays out the panel.
     */
    public StaticRectPanel() {
       
 
         setBackground( new Color(130, 0, 130) );
-        setLayout( new BorderLayout(3,3) );  // BorderLayout with 3-pixel gaps.
+        setLayout( new BorderLayout(3, 3) );  // BorderLayout with 3-pixel gaps.
 
-        JPanel innerPanelLeft = new JPanel();
-        innerPanelLeft.setBackground(Color.yellow);
-        add(innerPanelLeft, BorderLayout.NORTH);
+        JPanel innerPanelTop = new JPanel();
+        innerPanelTop.setBackground(Color.YELLOW);
+        add(innerPanelTop, BorderLayout.CENTER);
         
-        JPanel innerPanelRight = new JPanel();
+        JPanel innerPanelBottom = new JPanel();
+        innerPanelBottom.setBackground(Color.BLUE);
+        add(innerPanelBottom, BorderLayout.SOUTH);
+        innerPanelBottom.setPreferredSize(new Dimension(100, 200));
         
         JPanel innerInnerPanel = new JPanel();
+        JPanel rightInnerPanel = new JPanel();
+        innerPanelBottom.setLayout(new BorderLayout());
+        innerPanelBottom.add(innerInnerPanel, BorderLayout.WEST);
+        innerInnerPanel.setPreferredSize(new Dimension(400, 100));
+        
+        innerPanelBottom.add(rightInnerPanel, BorderLayout.EAST);
+        rightInnerPanel.setPreferredSize(new Dimension(400, 100));
         
         
-        setLocation(100, 75);
-        setSize(900, 600);
         
-    //    setContentPane(innerPanelLeft);
-   //     add(innerPanelLeft);
-   //     add(innerPanelRight);
+        
+        
+        
+    //    setContentPane(innerPanelTop);
+   //     add(innerPanelTop);
+   //     add(innerPanelBottom);
     //    innerInnerPanel.setBackground(Color.RED);
-    //    innerPanelLeft.add(innerInnerPanel);
+    //    innerPanelTop.add(innerInnerPanel);
         
-   //     innerPanelLeft.setBackground(Color.yellow);
+   //     innerPanelTop.setBackground(Color.yellow);
       
       
  //     setLayout( new BorderLayout(3,3) );
