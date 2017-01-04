@@ -29,7 +29,7 @@ public class StaticRectPanel extends JPanel {
 
         JPanel innerPanelTop = new JPanel();
         innerPanelTop.setBackground(Color.YELLOW);
-        add(innerPanelTop, BorderLayout.CENTER);
+        add(innerPanelTop.add(new Map()), BorderLayout.CENTER);
         
         JPanel innerPanelBottom = new JPanel();
         innerPanelBottom.setBackground(Color.BLUE);
@@ -40,10 +40,10 @@ public class StaticRectPanel extends JPanel {
         JPanel rightInnerPanel = new JPanel();
         innerPanelBottom.setLayout(new BorderLayout());
         innerPanelBottom.add(innerInnerPanel, BorderLayout.WEST);
-        innerInnerPanel.setPreferredSize(new Dimension(400, 100));
+        innerInnerPanel.setPreferredSize(new Dimension(440, 100));
         
         innerPanelBottom.add(rightInnerPanel, BorderLayout.EAST);
-        rightInnerPanel.setPreferredSize(new Dimension(400, 100));
+        rightInnerPanel.setPreferredSize(new Dimension(440, 100));
         
         
         
