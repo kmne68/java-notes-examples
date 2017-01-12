@@ -24,7 +24,7 @@ public class TileSplitter {
     //
     public void LoadImage() {
         try {
-            input = ImageIO.read(new File("c:\\java\\images\\curses.bmp"));
+            input = ImageIO.read(new File("c:\\java\\images\\curses.png"));
             imageWidth = input.getWidth();
             imageHeight = input.getHeight();
             System.out.println("imageWidth = " + imageWidth);
@@ -40,7 +40,7 @@ public class TileSplitter {
     {
         try {
             BufferedImage output = test;
-            File fo = new File("C:\\java\\images\\newimages20170104.png"); 
+            File fo = new File("C:\\java\\images\\newimages_alpha10.png"); 
             ImageIO.write(output, "JPG", fo);
         }
         catch (IOException e)
@@ -75,6 +75,8 @@ public class TileSplitter {
 
     // Returns a random 8 x 12 sub-image from our Buffered Image input
     public BufferedImage getRandomImage() {
+            
+        BufferedImage bi = new BufferedImage (subImageWidth, subImageHeight, BufferedImage.TYPE_INT_ARGB);
 
         Random randomRow = new Random();
         int rowIndex = (randomRow.nextInt(16)) * 8;
@@ -84,11 +86,13 @@ public class TileSplitter {
 
         System.out.println("rowIndex = " + rowIndex + ", columnIndex = " + columnIndex);
 
-        return input.getSubimage(rowIndex, columnIndex, subImageWidth, subImageHeight);
+        bi = input.getSubimage(rowIndex, columnIndex, subImageWidth, subImageHeight);
+        return bi;
     }
 
     
     public static void main(String args[]) {
+        
         TileSplitter splitter = new TileSplitter();
         splitter.LoadImage();
         //	testOut = splitter.SaveImage(); // Capture and save the SubImage
