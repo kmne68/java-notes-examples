@@ -90,7 +90,7 @@ public class AnimationBase extends JFrame implements ActionListener {
         */
         g.setColor(Color.BLUE);
     //    g.fillRect(0, 0, getWidth(), getHeight());
-        g.setColor(Color.yellow);
+        g.setColor(Color.BLACK);
         g.drawString("Frame Number " + getFrameNumber(), 10, 15);
         g.drawString("Elapsed Time " + getElapsedTime()/1000 + " seconds", 10, 30);
     }
