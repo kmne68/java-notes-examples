@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
 import javax.swing.JComponent;
@@ -33,6 +34,11 @@ public class Map extends JComponent {
     int subImageHeight = 12;
     TileSplitter splitter;
     Image filteredImage = null;
+    
+    int[] entityX = {40, 48, 48, 40};
+    int[] entityY = {60, 60, 72, 72};
+    Entity entity = new Entity(entityX, entityY, 4);
+    
 
     public Map() {
         
@@ -43,19 +49,10 @@ public class Map extends JComponent {
         testOut = splitter.getRandomImage(); 
         
         filteredImage = splitter.filterImage(testOut);
-        
-        
+
         splitter.ShowImage((BufferedImage)filteredImage);     // write image to file for testing
-        /*/---------------
-        filteredImage = splitter.MakeColorTransparent(testOut, Color.magenta); //new Color(0).blue);
-        newBuff = splitter.toBufferedImage(filteredImage);
 
-        splitter.ShowImage(newBuff);
-        //------------------ */
         
-        
-       // testOut = splitter.SaveImage(); // Capture and save the SubImage
-
     }
 
     @Override
@@ -87,6 +84,9 @@ public class Map extends JComponent {
                 g2d.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
                 currentX += 3;
                 currentY += 3;
+                
+                g2d.setColor(Color.GREEN);
+                g2d.drawPolygon(entity.getShape());
             }
         }
     }
