@@ -32,15 +32,32 @@ public class Entity {
     private boolean checkIntersection; 
     private Polygon shape;
     
+    private int[] xPoints;
+    private int[] yPoints;
+    private int numberOfPoints;
+    
     
     public Entity(int[] xpoints, int[] ypoints, int points) {
         
+        this.xPoints = xpoints;
+        this.yPoints = yPoints;
+        this.numberOfPoints = points;
         this.shape = new Polygon(xpoints, ypoints, points);
     }
     
     
     public Polygon getShape() {
         return shape;
+    }
+    
+    public void moveEntityRight(int x) {
+        if(xPoints[0] - x < 0) {
+            // do nothing
+        } else {
+            for (int i = 0; i < xPoints.length; i++) {
+                xPoints[i] = xPoints[i] - x;
+            }
+        }
     }
     
 

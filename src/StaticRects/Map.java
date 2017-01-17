@@ -13,7 +13,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.Polygon;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
 import javax.swing.JComponent;
@@ -42,7 +47,49 @@ public class Map extends JComponent {
 
     public Map() {
         
-        BufferedImage newBuff = null;
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
+            
+            public boolean dispatchKeyEvent(KeyEvent e) {
+                
+                int key = e.getKeyCode();
+                
+                switch(key) {
+                    case KeyEvent.VK_RIGHT:
+                        entity.moveEntityRight(8);
+                        break;
+                    case KeyEvent.VK_LEFT:
+               //         entity.moveEntityLeft(8);
+                        break;
+                    case KeyEvent.VK_UP:
+               //         entity.moveEntityUp(12);
+                        break;
+                    case KeyEvent.VK_DOWN:
+              //         entity.moveEntityDown(12);
+                        break;                        
+                }
+                return false;
+            }
+        });
+        
+        addComponentListener(new ComponentAdapter() {
+            
+            public void componentResized(ComponentEvent e) {
+    //           buffer = null; // for BufferedImage
+            }
+        });   
+    }
+
+    @Override
+    public void paint(Graphics g) {
+
+        Graphics2D g2d = (Graphics2D) g;
+        float thickness = 3;
+        int currentX = 3;
+        int currentY = 3;
+        
+        
+        
+                BufferedImage newBuff = null;
         
         this.splitter = new TileSplitter();
         splitter.LoadImage();
@@ -53,16 +100,6 @@ public class Map extends JComponent {
         splitter.ShowImage((BufferedImage)filteredImage);     // write image to file for testing
 
         
-    }
-
-    @Override
-    public void paint(Graphics g) {
-
-        Graphics2D g2d = (Graphics2D) g;
-        float thickness = 3;
-        int currentX = 3;
-        int currentY = 3;
-
         /*
          * Create a rescale filter op that makes the image
          * 50% opaque.
