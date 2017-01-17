@@ -50,14 +50,14 @@ public class Entity {
         return shape;
     }
     
-    public void moveEntityRight(int x) {
+    public int[] moveEntityRight(int x) {
         if(xPoints[0] - x < 0) {
             // do nothing
         } else {
             for (int i = 0; i < xPoints.length; i++) {
-                xPoints[i] = xPoints[i] - x;
+                xPoints[i] = xPoints[i] + x;
             }
-        }
+        } return xPoints;
     }
     
 

@@ -55,7 +55,8 @@ public class Map extends JComponent {
                 
                 switch(key) {
                     case KeyEvent.VK_RIGHT:
-                        entity.moveEntityRight(8);
+                        System.out.println("The right arrow key was pressed.");
+                        entityX = entity.moveEntityRight(8);
                         break;
                     case KeyEvent.VK_LEFT:
                //         entity.moveEntityLeft(8);
@@ -67,6 +68,7 @@ public class Map extends JComponent {
               //         entity.moveEntityDown(12);
                         break;                        
                 }
+                repaint();
                 return false;
             }
         });
@@ -89,7 +91,7 @@ public class Map extends JComponent {
         
         
         
-                BufferedImage newBuff = null;
+        BufferedImage newBuff = null;
         
         this.splitter = new TileSplitter();
         splitter.LoadImage();
