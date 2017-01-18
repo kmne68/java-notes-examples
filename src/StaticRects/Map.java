@@ -42,11 +42,13 @@ public class Map extends JComponent {
     
     int[] entityX = {40, 48, 48, 40};
     int[] entityY = {60, 60, 72, 72};
-    Entity entity = new Entity(entityX, entityY, 4);
+    Entity entity; 
     
 
     public Map() {
-        
+        System.out.println("Beginning entityX values " + entityX[0] + ", " + entityX[1] + ", " + entityX[2] + ", " + entityX[3]);
+                        
+        this.entity = new Entity(entityX, entityY, 4);
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
             
             public boolean dispatchKeyEvent(KeyEvent e) {
@@ -57,6 +59,7 @@ public class Map extends JComponent {
                     case KeyEvent.VK_RIGHT:
                         System.out.println("The right arrow key was pressed.");
                         entityX = entity.moveEntityRight(8);
+                        System.out.println("Listener entityX at 0 and 3 " + entityX[0] + ", " + entityX[1] + ", " + entityX[2] + ", " + entityX[3]);
                         break;
                     case KeyEvent.VK_LEFT:
                //         entity.moveEntityLeft(8);
@@ -121,11 +124,14 @@ public class Map extends JComponent {
  //               g2d.drawImage(testOut, rop, 7, 12);
                 g2d.drawImage(filteredImage, 8, 12, null);  // draw image on map
                 g2d.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
-                currentX += 3;
-                currentY += 3;
+             //   currentX += 3;
+             //   currentY += 3;
                 
                 g2d.setColor(Color.GREEN);
+                entity = new Entity(entityX, entityY, 4);
                 g2d.drawPolygon(entity.getShape());
+                
+                //repaint();
             }
         }
     }

@@ -32,17 +32,17 @@ public class Entity {
     private boolean checkIntersection; 
     private Polygon shape;
     
-    private int[] xPoints;
-    private int[] yPoints;
-    private int numberOfPoints;
+    private int[] xPoints; // = {40, 48, 48, 40};
+    private int[] yPoints; // = {60, 60, 72, 72};
+    private int numberOfPoints; // = 4;
     
     
-    public Entity(int[] xpoints, int[] ypoints, int points) {
+    public Entity (int[] xpoints, int[] ypoints, int points) {
         
         this.xPoints = xpoints;
-        this.yPoints = yPoints;
+        this.yPoints = ypoints;
         this.numberOfPoints = points;
-        this.shape = new Polygon(xpoints, ypoints, points);
+        this.shape = new Polygon(xPoints, yPoints, numberOfPoints);
     }
     
     
