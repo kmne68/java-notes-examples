@@ -83,16 +83,9 @@ public class Map extends JComponent {
             }
         });   
     }
-
-    @Override
-    public void paint(Graphics g) {
-
-        Graphics2D g2d = (Graphics2D) g;
-        float thickness = 3;
-        int currentX = 3;
-        int currentY = 3;
-        
-        
+    
+    
+    public Image getFilteredImage() {
         
         BufferedImage newBuff = null;
         
@@ -104,6 +97,30 @@ public class Map extends JComponent {
 
         splitter.ShowImage((BufferedImage)filteredImage);     // write image to file for testing
 
+        return filteredImage;        
+    }
+
+    
+    @Override
+    public void paint(Graphics g) {
+
+        Graphics2D g2d = (Graphics2D) g;
+        float thickness = 3;
+        int currentX = 3;
+        int currentY = 3;
+        
+        
+    /*    
+        BufferedImage newBuff = null;
+        
+        this.splitter = new TileSplitter();
+        splitter.LoadImage();
+        testOut = splitter.getRandomImage(); 
+        
+        filteredImage = splitter.filterImage(testOut);
+
+        splitter.ShowImage((BufferedImage)filteredImage);     // write image to file for testing
+*/
         
         /*
          * Create a rescale filter op that makes the image
@@ -122,7 +139,7 @@ public class Map extends JComponent {
                 System.out.println("currentX = " + currentX + ", CurrentY " + currentY);
 
  //               g2d.drawImage(testOut, rop, 7, 12);
-                g2d.drawImage(filteredImage, 8, 12, null);  // draw image on map
+ //               g2d.drawImage(filteredImage, 8, 12, null);  // draw image on map
                 g2d.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
              //   currentX += 3;
              //   currentY += 3;
@@ -134,5 +151,6 @@ public class Map extends JComponent {
                 //repaint();
             }
         }
+        g2d.drawImage(getFilteredImage(), 8, 12, null);  // draw image on map
     }
 }
