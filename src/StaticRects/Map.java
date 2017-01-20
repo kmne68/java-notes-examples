@@ -57,18 +57,16 @@ public class Map extends JComponent {
                 
                 switch(key) {
                     case KeyEvent.VK_RIGHT:
-                        System.out.println("The right arrow key was pressed.");
                         entityX = entity.moveEntityRight(8);
-                        System.out.println("Listener entityX at 0 and 3 " + entityX[0] + ", " + entityX[1] + ", " + entityX[2] + ", " + entityX[3]);
                         break;
                     case KeyEvent.VK_LEFT:
-               //         entity.moveEntityLeft(8);
+                        entityX = entity.moveEntityLeft(8);
                         break;
                     case KeyEvent.VK_UP:
-               //         entity.moveEntityUp(12);
+                        entityY = entity.moveEntityUp(12);
                         break;
                     case KeyEvent.VK_DOWN:
-              //         entity.moveEntityDown(12);
+                        entityY = entity.moveEntityDown(12);
                         break;                        
                 }
                 repaint();
@@ -109,27 +107,7 @@ public class Map extends JComponent {
         int currentX = 3;
         int currentY = 3;
         
-        
-    /*    
-        BufferedImage newBuff = null;
-        
-        this.splitter = new TileSplitter();
-        splitter.LoadImage();
-        testOut = splitter.getRandomImage(); 
-        
-        filteredImage = splitter.filterImage(testOut);
-
-        splitter.ShowImage((BufferedImage)filteredImage);     // write image to file for testing
-*/
-        
-        /*
-         * Create a rescale filter op that makes the image
-         * 50% opaque.
-        
-        float[] scales = {1f, 1f, 1f, 0.1f};
-        float[] offsets = new float[4];
-        RescaleOp rop = new RescaleOp(scales, offsets, null); */
-
+        // Draw map 
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < 30; j++) {
                 g2d.setColor(Color.black);
@@ -141,16 +119,13 @@ public class Map extends JComponent {
  //               g2d.drawImage(testOut, rop, 7, 12);
  //               g2d.drawImage(filteredImage, 8, 12, null);  // draw image on map
                 g2d.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
-             //   currentX += 3;
-             //   currentY += 3;
-                
-                g2d.setColor(Color.GREEN);
-                entity = new Entity(entityX, entityY, 4);
-                g2d.drawPolygon(entity.getShape());
-                
-                //repaint();
+
             }
         }
+        g2d.setColor(Color.GREEN);
+        entity = new Entity(entityX, entityY, 4);
+        g2d.drawPolygon(entity.getShape());
         g2d.drawImage(getFilteredImage(), 8, 12, null);  // draw image on map
+
     }
 }
