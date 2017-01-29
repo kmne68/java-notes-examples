@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 public class Tile {
  
     private float x, y, width, height;
-    private BufferedImage texture;
+    private BufferedImage texture;  // texture is a sub-image of the tileset
     private TerrainType type;
     
     public Tile(float x, float y, float width, float height, TerrainType type) {
@@ -25,6 +25,11 @@ public class Tile {
         this.height = height;
         this.type = type;
      //   this.texture = ;
+    }
+    
+    public void Draw() {
+        
+        // draw tile in from tileset
     }
 
     public float getX() {
@@ -60,11 +65,11 @@ public class Tile {
     }
 
     public BufferedImage getTexture() {
-        return texture;
+        return texture; // texture is a sub-image of the tileset
     }
 
     public void setTexture(BufferedImage texture) {
-        this.texture = texture;
+        this.texture = texture; // texture is a sub-image of the tileset
     }
 
     public TerrainType getType() {

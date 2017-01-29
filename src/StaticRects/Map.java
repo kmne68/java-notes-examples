@@ -24,7 +24,8 @@ import java.awt.image.RescaleOp;
 import javax.swing.JComponent;
 
 /**
- *
+ * Creates the tile grid what holds 
+ * 
  * @author Keith
  */
 public class Map extends JComponent {
