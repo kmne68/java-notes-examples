@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javanotesprojects.RandomStringsPanel;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -30,30 +31,16 @@ public class App {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new AnimationBase().setVisible(true);
+                AnimationBase ab = new AnimationBase();
+                ab.setVisible(true);
+                ab.setContentPane(ab.outerPanel);
+                ab.setLocation(100, 75);
+                ab.setSize(900, 600);
+                ab.setDefaultCloseOperation(EXIT_ON_CLOSE);
             }
         });
     }
     
-  /*  public static void main(String[] args) {
-        
-        * 
-        System.out.println("From App.main");
-
-        AnimationBase frame = new AnimationBase();
-        
-   //     JFrame frame = new JFrame("Static Rectangles");
-  /*      frame.getPreferredSize();
-        StaticRectPanel content = new StaticRectPanel();
-        frame.setContentPane(content);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocation(100, 75);
-        frame.setSize(300, 240);
-        frame.setBackground(Color.yellow);
-        frame.setVisible(true);
-            frame.pack();  // Set size of frame to preferred size of its contents. When commented out, 
-        frame.setResizable(true);  // User can change the frame's size.
-         */
-    }
+}
     
 

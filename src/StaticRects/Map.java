@@ -24,7 +24,7 @@ import java.awt.image.RescaleOp;
 import javax.swing.JComponent;
 
 /**
- * Creates the tile grid what holds 
+ * Creates the tile grid that holds game entities and objects
  * 
  * @author Keith
  */
